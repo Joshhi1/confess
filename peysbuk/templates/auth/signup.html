@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock %}
+{% block head %}Signup{% endblock %}
+{% block jss %}
+{% if error.check %}
+<script>
+  let x = "{{ error.msg }}"
+  Swal.fire({
+    icon: 'error',
+    text: x
+  })
+</script>
+{% endif %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="bg-main">
+  <div class='user'>
+    <label for="user">Username</label>
+    <input type="text" required id='user' name="username" minlength='3' maxlength='16'>
+  </div>
+  <div class="pass">
+    <label for="pass">Password</label>
+    <input type="password" required id="pass" name="password" minlength='6' maxlength="16">
+  </div>
+  <div class="pass">
+    <label for="pass">Confirm</label>
+    <input type="password" required id="confirm" name="confirm">
+  </div>
+  <p style="font-size: 12px">Already have an account? <a href="/login">Login</a></p>
+  <div><button class="hover-hp">Signup</button></div>
+</form>
+{% endblock %}

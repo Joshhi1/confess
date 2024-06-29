@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}{{ user.username }}{% endblock %}
+{% block head %}{{ user.username }}{% endblock %}
+{% block jss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+<script>
+  function cowpy(){
+    navigator.clipboard.writeText('https://gisava.com/{{ user.username }}')
+      .then(() => {
+        Swal.fire({text: 'Copied to clipboard'})
+      }).catch(err => {Swal.fire({icon:'error', text: str(err)})})
+  }
+  function DELETE(i){
+    let o = document.getElementById(`${i}`);
+    o.style.display = 'none';
+    fetch('/fod/delete_msg',{
+      method: 'POST',
+      headers: {"Content-Type": 'application/json'},
+      body: JSON.stringify({"id": i})
+    }).then(r=>r.json()).then(h=>{
+      Swal.fire({
+        icon: 'success',
+        text: 'Deleted',
+      })
+    }).catch(err => Swal.fire({icon: 'error', text: err}))
+  }
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="bg-main" id='link'>
+  <div>
+    <input type="text" id='my-link' readonly value="https://gisava.onrender.com/send/{{ user.username }}">
+    <button onclick="cowpy()" class="hover-hp"><i class="fa-copy fa-solid"></i></button>
+  </div>
+</article>
+
+<article>
+  {% for message in messages %}
+  <div class="item" id="{{ message.id }}">
+    <div class="top">
+      <p>{{ message.message|safe }}</p>
+    </div>
+    <div class="bot">
+      <p>{{ message.time }}</p>
+      <button onclick="DELETE({{ message.id }})"><i class="fa-solid fa-trash"></i> Delete</button>
+    </div>
+  </div>
+  {% endfor %}
+</article>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block head %}Login{% endblock %}
+{% block jss %}
+{% if error.check %}
+<script>
+  let x = "{{ error.msg }}"
+  Swal.fire({
+    icon: 'error',
+    text: x//'Invalid username or password'
+  })
+</script>
+{% endif %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="bg-main">
+  <div class='user'>
+    <label for="user">Username</label>
+    <input type="text" required id='user' name="username">
+  </div>
+  <div class="pass">
+    <label for="pass">Password</label>
+    <input type="password" required id="pass" name="password">
+  </div>
+  <p style="font-size: 12px">Don't have an account? <a href="/signup">Signup</a></p>
+  <div><button class="hover-hp">Login</button></div>
+</form>
+{% endblock %}

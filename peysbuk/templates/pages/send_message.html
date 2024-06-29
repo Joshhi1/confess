@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Send me anonymouse message{% endblock %}
+{% block head %}Send Anonymouse Message{% endblock %}
+{% block jss %}
+{% if is_success %}
+<script>
+  Swal.fire({
+    icon: 'success',
+    text: 'Message sent'
+  })
+</script>
+{% endif %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/send_msg.css') }}">
+{% endblock %}
+
+{% block content %}
+<form method="POST" class="bg-main">
+  <div id='top'>
+    <div><p>{{ username }}</p></div>
+    <div>
+      <textarea name="text" required minlength='3' maxlength="220" placeholder="Message..."></textarea>
+    </div>
+  </div>
+  
+  <div id='bot'><button type="submit" class="hover-hp"></button></div>
+</form>
+{% endblock %}

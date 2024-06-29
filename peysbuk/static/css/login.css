@@ -1,0 +1,43 @@
+main{
+  display: flex;
+  justify-content: center;
+}
+
+form{
+  margin-top: 50px;
+  width: 300px;
+  border-radius: 11px;
+  box-shadow: -2px 1px 18px #d0d0d0;
+  padding: 27px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px
+}
+label{
+  font-size: 14px;
+  margin-left: 6px;
+}
+input{
+  width: 100%;
+  background: #edf5f9;
+  transition: outline 0.2s;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  outline-color: var(--high-P);
+  border: 1px solid gray;
+}
+form button{
+  width: 90px;
+  margin-top:9px;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+}
+
+
+@media(max-width:720px){
+  form{
+    width: 84%;
+  }
+}

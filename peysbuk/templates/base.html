@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    :root{
+      --high-P: #615EFC;
+      --mid-P: #7E8EF1;
+      --ee: #fefefe;
+      --eeee: #eeee;
+    }
+    a{text-decoration: none}
+    ul{list-style-type: none}
+    *{padding: 0;margin: 0;box-sizing: border-box;font-family: 'Roboto', 'Arial'}
+    body{background: #f0fdff}
+    header{
+      background: #fefefe;
+      box-shadow: 0 1px 10px #edeff0;
+      padding: 7px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      border-bottom: 1px solid #eeee;
+    }
+    header div:nth-child(1){padding:5px 0}
+    header div:nth-child(2){padding: 4px 10px}
+    header div h1{font-weight:400;font-size:23px;color:#6256e0}
+    header div button{
+      padding: 4px 6px;
+      border: none;
+      border-radius: 3px;
+      font-size: 18px;
+      background: none;
+      color: var(--high-P);
+      box-shadow: 0 1px 11px #ffffff;
+    }
+    
+    .eeee{background: var(--eeee)}
+    .bg-main{background: var(--ee)}
+    .bg-hp{background: var(--high-P)}
+    .bg-mp{background: var(--mid-P)}
+    .txt-hp{color:var(--high-P)}
+    .txt-mp{color: var(--mid-P)}
+    
+    .hover-hp{
+      background: var(--high-P);
+      color: white;
+      transition: background 0.1s;
+    }.hover-hp:hover{
+      background: var(--mid-P);
+    }
+    
+    #sidebar{
+      position: absolute;
+      top: 0;
+      left: -300px;
+      height: 100vh;
+      width: 300px;
+      background: #fbfafa;
+      box-shadow: 2px 0 8px #eceaf2;
+      padding: 20px 14px;
+      transition: all 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+    .sd-cont{
+      background: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 7px;
+    }
+    .sd-cont a{
+      background: var(--high-P);
+      padding: 6px 8px;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+    .sd-cont a i{margin-right: 6px}
+    
+    /*
+    footer{
+      background: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 6px;
+      font-size: 15px;
+      text-align: center;
+      color: var(--high-P);
+    }
+    */
+    @media(max-width: 720px){
+      #sidebar{
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="sidebar">
+    {% if user %}
+    <div class="sd-cont">
+      <a href="/logout" class="hover-hp">Logout</a>
+    </div>
+    {% else %}
+    <div class="sd-cont">
+      <a href="/login" class="hover-hp">Login</a>
+      <a href="/signup" class="hover-hp">Signup</a>
+    </div>
+    {% endif %}
+  </div>
+  
+  <header>
+    <div><h1>{% block head %}{% endblock %}</h1></div>
+    <div>
+      <button onclick="menu()" id="menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+  
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  
+  <!--
+  <footer>
+    <p>&copy; Greegmon. All rights reserved</p>
+  </footer>
+  -->
+  
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function menu(){
+  let dvd = document.getElementById('sidebar');
+  let i = document.getElementById('menu');
+  if(i.innerHTML === '<i class="fa-solid fa-bars"></i>'){
+    i.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    dvd.style.left = '0px';
+  }else{
+    i.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    dvd.style.left = '-300px'
+  }
+}
+</script>
+{% block jss %}{% endblock %}
+</html>
