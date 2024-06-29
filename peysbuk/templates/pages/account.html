@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
 <script>
   function cowpy(){
-    navigator.clipboard.writeText('https://gisava.com/{{ user.username }}')
+    navigator.clipboard.writeText('https://greeg-ngl.onrender.com/{{ user.username }}')
       .then(() => {
         Swal.fire({text: 'Copied to clipboard'})
       }).catch(err => {Swal.fire({icon:'error', text: str(err)})})
@@ -31,7 +31,7 @@
 
 <article class="bg-main" id='link'>
   <div>
-    <input type="text" id='my-link' readonly value="https://gisava.onrender.com/send/{{ user.username }}">
+    <input type="text" id='my-link' readonly value="https://greeg-ngl.onrender.com/{{ user.username }}">
     <button onclick="cowpy()" class="hover-hp"><i class="fa-copy fa-solid"></i></button>
   </div>
 </article>
