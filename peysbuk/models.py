@@ -5,8 +5,10 @@ from datetime import datetime
 now = datetime.now()
 dime = now.strftime("%-m/%-d/%Y - %-I:%M %p")
 
-DB_URL = "https://mkohhlpcluzrpkmxzgdy.supabase.co"
-DB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rb2hobHBjbHV6cnBrbXh6Z2R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5NzQ0ODUsImV4cCI6MjAzNDU1MDQ4NX0.Mt-NOjeAkJxqF2-d_71rPmeP8mxDAGeaUD0xmeCiI7E"
+# Supabase database url & key
+# lagay mo dito hunghang
+DB_URL = ""
+DB_KEY = ""
 
 supabase = create_client(DB_URL, DB_KEY).table('ngl-account')
 class User:
