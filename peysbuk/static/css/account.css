@@ -13,13 +13,13 @@ article{
 #link{
   padding: 14px 13px;
   border-radius: 12px;
-  box-shadow: 0 2px 13px #d9d6d6;
+  box-shadow: 0 2px 13px #ADD8E6;
   border: 1px solid var(--mid-P);
 }
 #link:before{
   content: 'Your link';
   font-size: 14px;
-  color: #1c1818;
+  color: #90EE90;
 }
 #link div{display: flex}
 #link input{
@@ -48,8 +48,8 @@ article:nth-child(2){
   gap: 20px
 }
 .item{
-  background: #2f2f2f;
-  color: #efeded;
+  background: #ADD8E6;
+  color: #90EE90;
   border-radius: 18px;
   border: 1px solid var(--high-P);
 }
@@ -71,7 +71,7 @@ article:nth-child(2){
   font-size: 13px;
   border: 1px dotted var(--mid-P);
   padding: 3px 5px;
-  color: #686569;
+  color: #FFFFFF;
   border-radius: 10px;
 }
 .item .bot button{
@@ -83,7 +83,7 @@ article:nth-child(2){
   font-size: 12px;
 }
 .item .bot button:hover{
-  background: #f33a3a;
+  background: #ADD8E6;
 }
 
 @media(max-width:720px){
