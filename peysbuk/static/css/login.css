@@ -7,7 +7,7 @@ form{
   margin-top: 50px;
   width: 300px;
   border-radius: 11px;
-  box-shadow: -2px 1px 18px #d0d0d0;
+  box-shadow: -2px 1px 18px #90EE90;
   padding: 27px 34px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ label{
 }
 input{
   width: 100%;
-  background: #edf5f9;
+  background: #ADD8E6;
   transition: outline 0.2s;
   padding: 10px;
   border-radius: 4px;
